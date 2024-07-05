@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require('express');
 const { default: mongoose } = require('mongoose');
 const app = express()
@@ -8,7 +9,6 @@ const categorieRoute = require("./src/routes/categories");
 const newsRoute = require("./src/routes/news");
 const loginRoute = require("./src/routes/login");
 
-require("dotenv").config()
 app.use(express.json())
 app.use(cors())
 async function connect() {
