@@ -23,7 +23,7 @@ async function connect() {
 app.use("/", loginRoute)
 app.use("/", categorieRoute)
 app.use("/", newsRoute)
-
+connect()
 app.listen(port, () => {
     connect()
     console.log(port);

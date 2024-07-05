@@ -4,7 +4,6 @@ const news = require("../models/news.schema")
 const loginfunction = require("../midleweare/login")
 
 route.post("/news", loginfunction, async (req, res) => {
-    console.log(req.body);
     try {
         const newnews = new news(req.body)
         await newnews.save()
@@ -58,12 +57,13 @@ route.post("/news_dislike/:id", async (req, res) => {
 });
 
 route.get("/news", async (req, res) => {
-    try {
-        const allnews = await news.find().populate("category_id")
-        res.status(200).json(allnews)
-    } catch (error) {
-        res.status(500).json({ message: "categorie not created", error })
-    }
+    // try {
+    //     const allnews = await news.find().populate("category_id")
+    //     res.status(200).json(allnews)
+    // } catch (error) {
+    //     res.status(500).json({ message: "categorie not created", error })
+    // }
+    res.send("salam")
 })
 route.get("/news/:id", async (req, res) => {
     try {
