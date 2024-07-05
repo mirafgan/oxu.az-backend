@@ -63,7 +63,12 @@ route.get("/news", async (req, res) => {
     // } catch (error) {
     //     res.status(500).json({ message: "categorie not created", error })
     // }
-    res.send(`salam ${process.env.MONGO_URI}`)
+    try {
+        await mongoose.connect(process.env.MONGO_URI)
+        res.send(`Qoşuldu ${process.env.MONGO_URI}`)
+    } catch (error) {
+        res.send(`qosulmadi ${error}`);
+    }
 })
 route.get("/news/:id", async (req, res) => {
     try {
