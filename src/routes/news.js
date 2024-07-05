@@ -2,6 +2,7 @@ const express = require("express")
 const route = express.Router()
 const news = require("../models/news.schema")
 const loginfunction = require("../midleweare/login")
+const { default: mongoose } = require("mongoose")
 
 route.post("/news", loginfunction, async (req, res) => {
     try {
