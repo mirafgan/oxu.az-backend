@@ -66,7 +66,8 @@ route.get("/news", async (req, res) => {
     // }
     try {
         await mongoose.connect(process.env.MONGO_URI)
-        res.send(`Qoşuldu ${process.env.MONGO_URI}`)
+        const allnews = await news.find().populate("category_id")
+        res.status(200).json(allnews)
     } catch (error) {
         res.send(`qosulmadi ${error}`);
     }
