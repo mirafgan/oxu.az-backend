@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const Admin = require("../models/admin.schema");
 const bcrypt = require("bcryptjs");
