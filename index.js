@@ -19,7 +19,7 @@ async function connect() {
         console.log("qosulmadi", error);
     }
 }
-
+connect()
 app.use("/", loginRoute)
 app.use("/", categorieRoute)
 app.use("/", newsRoute)
