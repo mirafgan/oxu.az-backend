@@ -40,7 +40,7 @@ route.post("/news_dislike/:id", async (req, res) => {
     const { id } = req.params;
 
     try {
-        const newsItem = await News.findById(id);
+        const newsItem = await news.findById(id);
 
         if (!newsItem) {
             return res.status(404).json({ message: "News article not found" });
