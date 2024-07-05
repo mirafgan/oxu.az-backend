@@ -18,7 +18,7 @@ route.post("/news_like/:id", async (req, res) => {
     const { id } = req.params;
 
     try {
-        const newsItem = await News.findById(id);
+        const newsItem = await news.findById(id);
 
         if (!newsItem) {
             return res.status(404).json({ message: "News article not found" });
@@ -63,7 +63,7 @@ route.get("/news", async (req, res) => {
     // } catch (error) {
     //     res.status(500).json({ message: "categorie not created", error })
     // }
-    res.send("salam")
+    res.send(`salam ${process.env.MONGO_URI}`)
 })
 route.get("/news/:id", async (req, res) => {
     try {
