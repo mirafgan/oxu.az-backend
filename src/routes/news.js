@@ -58,19 +58,19 @@ route.post("/news_dislike/:id", async (req, res) => {
 });
 
 route.get("/news", async (req, res) => {
-    // try {
-    //     const allnews = await news.find().populate("category_id")
-    //     res.status(200).json(allnews)
-    // } catch (error) {
-    //     res.status(500).json({ message: "categorie not created", error })
-    // }
     try {
-        await mongoose.connect(process.env.MONGO_URI)
         const allnews = await news.find().populate("category_id")
         res.status(200).json(allnews)
     } catch (error) {
-        res.send(`qosulmadi ${error}`);
+        res.status(500).json({ message: "categorie not created", error })
     }
+    // try {
+    //     await mongoose.connect(process.env.MONGO_URI)
+    //     const allnews = await news.find().populate("category_id")
+    //     res.status(200).json(allnews)
+    // } catch (error) {
+    //     res.send(`qosulmadi ${error}`);
+    // }
 })
 route.get("/news/:id", async (req, res) => {
     try {
